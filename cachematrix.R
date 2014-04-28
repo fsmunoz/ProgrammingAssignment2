@@ -19,7 +19,10 @@ makeCacheMatrix <- function(x = matrix()) {
     m <- NULL
     ## Create function that returns the passed matrix
     get <- function() x    
-    ## Create function to set the the input matrix
+    ## Create function to set the the input matrix Note that "foo" is
+    ## a free variable, and that both assignements are done using
+    ## "<<-" to "reach" the variables in the surrounding environment
+    ## (which is the makeCacheMatrix body itself).
     set <- function(foo) {
         x <<- foo
         m <<- NULL 
